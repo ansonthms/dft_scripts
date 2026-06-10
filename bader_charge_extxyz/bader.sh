@@ -8,6 +8,8 @@ out=$(grep outdir $1 )
 outdir=${out#*=}
 name="$1"
 jobname=$(echo ${name%.*})
+
+
 cat > val.in << EOF
 &INPUTPP
   prefix = $prefix
@@ -42,7 +44,7 @@ EOF
 
 mpirun pp.x < all.in > all.out
 
-/home/a_thomas.iitr/SWs/bader/bader val.cube -ref all.cube
+/home/a_thomas.iitr/SWs/bader/bader val.cube -ref all.cube   ###Adjust the path to your bader executable
 rm *charge *cube
 
 python conv_charges.py "$1"
