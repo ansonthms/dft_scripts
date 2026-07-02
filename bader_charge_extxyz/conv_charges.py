@@ -1,7 +1,15 @@
+#!/usr/bin/env python3
+###Script to extract bader charges to an ase file with charges for easy visualization
+
 import sys,os
 import numpy as np
 from ase.io import read, write
+
+if len(sys.argv) != 2:
+    print("Usage: conv_charge.py <path to structure>. Make sure to run in folder containing ACF.dat")
+    exit()
 basename=os.path.basename(sys.argv[1])
+
 
 val_electrons = {"Al": 3, "O": 6, "H": 1, "Cl": 7}
 
