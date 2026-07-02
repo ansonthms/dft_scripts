@@ -6,6 +6,8 @@ import numpy as np
 from ase.io import read, write
 from pymatgen.io.lobster.outputs import Charge
 
+if not os.path.isfile("CHARGE.lobster") and os.path.isfile("POSCAR.lobster.vasp"):
+    exit()
 # ASE reads QE input files directly
 atoms = read('POSCAR.lobster.vasp')
 
